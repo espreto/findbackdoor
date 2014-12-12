@@ -1,0 +1,47 @@
+---
+:database:
+  :name: PHP/Wordpress
+  :updated_at: 12/12/2014
+:tests:
+- :title: Functions Signatures
+  :patterns:
+  - !ruby/regexp /apache_child_terminate\s*\(.*\$/i
+  - !ruby/regexp /array_diff_ukey\s*\(.*\$/i
+  - !ruby/regexp /base64_decode\s*\(.*\$/i
+  - !ruby/regexp /changelog\s*\(.*\$/i
+  - !ruby/regexp /curl_exec\s*\(.*\$/i
+  - !ruby/regexp /edoced_46esab\s*\(.*\$/i
+  - !ruby/regexp /escapeshellargi\s*\(.*\$/i
+  - !ruby/regexp /escapeshellcmd\s*\(.*\$/i
+  - !ruby/regexp /eval\s*\(.*\$/i
+  - !ruby/regexp /exec\s*\(.*\$/i
+  - !ruby/regexp /gzinflate\s*\(.*\$/i
+  - !ruby/regexp /gzuncompress\s*\(.*\$/i
+  - !ruby/regexp /leak\s*\(.*\$/i
+  - !ruby/regexp /passthru\s*\(.*\$/i
+  - !ruby/regexp /pclose\s*\(.*\$/i
+  - !ruby/regexp /pcntl_exec\s*\(.*\$/i
+  - !ruby/regexp /phpinfo\s*\(.*\$/i
+  - !ruby/regexp /popen\s*\(.*\$/i
+  - !ruby/regexp /posix_kill\s*\(.*\$/i
+  - !ruby/regexp /posix_mkfifo\s*\(.*\$/i
+  - !ruby/regexp /posix_setpgid\s*\(.*\$/i
+  - !ruby/regexp /posix_setsid\s*\(.*\$/i
+  - !ruby/regexp /posix_setuid\s*\(.*\$/i
+  - !ruby/regexp /preg_replace\s*\(.*\$/i
+  - !ruby/regexp /proc_close\s*\(.*\$/i
+  - !ruby/regexp /proc_get_status\s*\(.*\$/i
+  - !ruby/regexp /proc_nice\s*\(.*\$/i
+  - !ruby/regexp /proc_open\s*\(.*\$/i
+  - !ruby/regexp /proc_terminate\s*\(.*\$/i
+  - !ruby/regexp /safe_mode\s*\(.*\$/i
+  - !ruby/regexp /shell_exec\s*\(.*\$/i
+  - !ruby/regexp /show_source\s*\(.*\$/i
+  - !ruby/regexp /system\s*\(.*\$/i
+  :references:
+  - http://www.iwantshell.com
+:extensions:
+- php
+- php3
+- php4
+- inc

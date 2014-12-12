@@ -1,0 +1,35 @@
+---
+:database:
+  :name: Wordpress
+  :updated_at: 12/12/2014
+:tests:
+- :title: Database
+  :patterns:
+  - !ruby/regexp /wpdb/i
+  - !ruby/regexp /update_option\s*\(/i
+  - !ruby/regexp /delete_option\s*\(/i
+  :references: []
+- :title: Cross-site Scripting (XSS)
+  :patterns:
+  - !ruby/regexp /wp_list_comments\s*\(/i
+  - !ruby/regexp /comments_template\s*\(/i
+  - !ruby/regexp /previous_post_link\s*\(/i
+  - !ruby/regexp /get_the_title\s*\(/i
+  - !ruby/regexp /the_title\s*\(/i
+  - !ruby/regexp /comment_text\s*\(/
+  :references:
+  - https://www.owasp.org/index.php/XSS
+- :title: CSRF Protection
+  :patterns:
+  - !ruby/regexp /wp_nonce_url\s*\(/i
+  - !ruby/regexp /wp_nonce_field\s*\(/i
+  - !ruby/regexp /wp_create_nonce\s*\(/i
+  - !ruby/regexp /check_admin_referer\s*\(/i
+  - !ruby/regexp /check_ajax_referer\s*\(/i
+  - !ruby/regexp /wp_verify_nonce\s*\(/i
+  :references: []
+:extensions:
+- php
+- php3
+- php4
+- inc
