@@ -19,7 +19,7 @@ class CmdLineParser
         options[:list_db] = true
       end
       opts.on("-h", "--help", "Show this menu") do
-        puts opts
+        puts("#{opts}")
         exit
       end
     end
@@ -27,15 +27,15 @@ class CmdLineParser
     begin
       optparse.parse!
       if (!options[:list_db])
-        if (!options.include?(:source) or !options.include?(:db_name))
+        if (!options.include?(:source) || !options.include?(:db_name))
           puts("\n -s or -d missing\n\n")
           puts(" #{optparse}\n")
           exit
         end
       end
       options
-    rescue OptionParser::InvalidOption, OptionParser::MissingArgument
-      puts $!.to_s
+    rescue OptionParser::InvalidOption, OptionParser::MissingArgument => e
+      puts("Error: #{e}")
       exit
     end
   end
