@@ -1,17 +1,21 @@
 def print_error(msg = '')
-  print_line("\033[31m[-]\033[0m #{msg}")
+  print_line("\e[31m[-]\e[0m #{msg}")
 end
 
 def print_good(msg = '')
-  print_line("\033[32m[+]\033[0m #{msg}")
+  print_line("\e[32m[+]\e[0m #{msg}")
 end
 
-def print_debug(msg = '')
-  print_line("\033[36m[!]\033[0m #{msg}")
+def print_warning(msg = '')
+  print_line("\e[33m[!]\e[0m #{msg}")
 end
 
 def print_status(msg = '')
-  print_line("\033[34m[*]\033[0m #{msg}")
+  print_line("\e[34m[*]\e[0m #{msg}")
+end
+
+def print_debug(msg = '')
+  print_line("\e[36m[!]\e[0m #{msg}")
 end
 
 def print_line(msg = '')
