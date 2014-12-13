@@ -14,7 +14,6 @@ if (args[:list_db])
   Dir.glob(File.join("signatures","**","*.yml")).each do |db_name|
     puts("[+] - #{db_name}")
   end
-  #puts
   exit
 end
 
