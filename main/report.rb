@@ -11,34 +11,36 @@ class Report
       end
   end
 
+  @division = "=" * 80
+
   def self.xml(result)
-    puts("Not implemented")
+    print_line("#{@division}")
+    print_error("Not implemented")
   end
 
-
   def self.html(result)
-    puts("Not implemented")
+    print_line("#{@division}")
+    print_error("Not implemented")
   end
 
   def self.console(result)
-    puts("=" * 80)
-    puts("Signature: #{result[:database]}\nUpdated at: #{result[:database_updated_at]}")
-    puts("Scanned files: #{result[:scanned_files]}")
-    puts("Total issues: #{result[:total_issues]}")
+    print_line("#{@division}")
+    print_status("Signature: #{result[:database]}")
+    print_status("Updated at: #{result[:database_updated_at]}")
+    print_status("Scanned files: #{result[:scanned_files]}")
+    print_status("Total issues: #{result[:total_issues]}")
 
     result[:tests].each do |key, value|
-      puts("=" * 80)
-      puts("[*] #{key}")
-      puts("[*] References:")
-      value[:references].each {|ref| puts "    #{ref}" }
-      puts("[*] Issues found: #{value[:issues_found]}")
-      puts("[*] Files:\n\n")
+      print_line("#{@division}")
+      print_status("#{key}")
+      print_status("References: #{value[:references][0]}")
+      print_good("Issues found: #{value[:issues_found]}")
+      print_status("Files:\n")
       value[:files].each do |file|
-        puts("\t#{file[0]}")
+        print_line("\t#{file[0]}")
         file[1].each do |issue|
-          puts("\t#{issue[0]}: #{issue[1]}") #lineno: linecontent
+          print_line("\t#{issue[0]}: #{issue[1]}") #lineno: linecontent
         end
-        puts
       end
     end
   end

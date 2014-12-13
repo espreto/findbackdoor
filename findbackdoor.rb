@@ -6,13 +6,14 @@ PATH = File.dirname(__FILE__)
 require File.join(PATH, '/main/cmdline_parser')
 require File.join(PATH, '/main/findbackdoor')
 require File.join(PATH, '/main/report')
+require File.join(PATH, '/main/color')
 
 args = CmdLineParser.parse(ARGV)
 
 if (args[:list_db])
-  puts("[*] Available signatures:")
+  print_status("Available signatures:")
   Dir.glob(File.join("signatures","**","*.yml")).each do |db_name|
-    puts("[+] - #{db_name}")
+    print_good("#{db_name}")
   end
   exit
 end
