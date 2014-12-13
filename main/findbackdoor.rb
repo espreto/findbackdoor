@@ -5,7 +5,6 @@ class FindBackdoor
 
     result = {}
     result[:database] = db[:database][:name]
-    #result[:database_version] = db[:database][:version]
     result[:database_updated_at] = db[:database][:updated_at]
     result[:scanned_files] = files.length
     result[:total_issues] = 0
