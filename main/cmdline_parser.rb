@@ -26,8 +26,8 @@ class CmdLineParser
 
     begin
       optparse.parse!
-      if (!options[:list_db])
-        if (!options.include?(:source) || !options.include?(:db_name))
+      if !options[:list_db]
+        if !options.include?(:source) || !options.include?(:db_name)
           print_error("-s or -d missing")
           print_status("#{optparse}")
           exit

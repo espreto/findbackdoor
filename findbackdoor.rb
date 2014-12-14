@@ -1,16 +1,15 @@
 require 'digest'
 require 'yaml'
+require_relative 'main/findbackdoor'
+require_relative 'main/cmdline_parser'
+require_relative 'main/report'
+require_relative 'main/color'
 
-PATH = File.dirname(__FILE__)
-
-require File.join(PATH, '/main/cmdline_parser')
-require File.join(PATH, '/main/findbackdoor')
-require File.join(PATH, '/main/report')
-require File.join(PATH, '/main/color')
+include Colorize
 
 args = CmdLineParser.parse(ARGV)
 
-if (args[:list_db])
+if args[:list_db]
   print_status("Available signatures:")
   Dir.glob(File.join("signatures","**","*.yml")).each do |db_name|
     print_good("#{db_name}")

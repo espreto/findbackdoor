@@ -2,13 +2,13 @@ class Report
 
   def self.generate(result, format)
     case format
-      when :xml
-        xml(result)
-      when :html
-        html(result)
-      else
-        console(result)
-      end
+    when :xml
+      xml(result)
+    when :html
+      html(result)
+    else
+      console(result)
+    end
   end
 
   @division = "=" * 80
@@ -39,7 +39,7 @@ class Report
       value[:files].each do |file|
         print_line("\t#{file[0]}")
         file[1].each do |issue|
-          print_line("\t#{issue[0]}: #{issue[1]}") #lineno: linecontent
+          print_line("\t#{issue[0]}: #{issue[1]}")
         end
       end
     end

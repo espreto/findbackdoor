@@ -1,4 +1,4 @@
-class FindBackdoor
+module FindBackdoor
   def self.run(db, source_dir)
 
     files = get_filenames(db[:extensions], source_dir)
@@ -24,7 +24,7 @@ class FindBackdoor
           lines.each_with_index do |line, lineno|
             match_lines << [lineno + 1, line.squeeze(" \t")] if (line =~ pattern)
           end
-          if (match_lines.length > 0)
+          if match_lines.length > 0
             result[:tests][test[:title]][:files] << [f, match_lines]
             result[:total_issues] += match_lines.length
             result[:tests][test[:title]][:issues_found] += match_lines.length
