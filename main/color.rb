@@ -22,4 +22,8 @@ module Colorize
   def print_line(msg = '')
     print(msg + "\n")
   end
+
+  def print_div(msg = '')
+    print("=" * 80 + "\n")
+  end
 end

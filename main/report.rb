@@ -11,27 +11,25 @@ class Report
     end
   end
 
-  @division = "=" * 80
-
   def self.xml(result)
-    print_line("#{@division}")
+    print_div
     print_error("Not implemented")
   end
 
   def self.html(result)
-    print_line("#{@division}")
+    print_div
     print_error("Not implemented")
   end
 
   def self.console(result)
-    print_line("#{@division}")
+    print_div
     print_status("Signature: #{result[:database]}")
     print_status("Updated at: #{result[:database_updated_at]}")
     print_status("Scanned files: #{result[:scanned_files]}")
     print_status("Total issues: #{result[:total_issues]}")
 
     result[:tests].each do |key, value|
-      print_line("#{@division}")
+      print_div
       print_status("#{key}")
       print_status("References: #{value[:references][0]}")
       print_good("Issues found: #{value[:issues_found]}")
