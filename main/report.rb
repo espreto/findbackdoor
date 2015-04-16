@@ -1,5 +1,7 @@
+#
+# FindBackdoor.rb
+#
 class Report
-
   def self.generate(result, format)
     case format
     when :xml
@@ -11,14 +13,14 @@ class Report
     end
   end
 
-  def self.xml(result)
+  def self.xml(_result)
     print_div
-    print_error("Not implemented")
+    print_error('Not implemented')
   end
 
-  def self.html(result)
+  def self.html(_result)
     print_div
-    print_error("Not implemented")
+    print_error('Not implemented')
   end
 
   def self.console(result)

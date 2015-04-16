@@ -1,3 +1,6 @@
+#
+# FindBackdoor.rb
+#
 module Colorize
   def print_error(msg = '')
     print_line("\e[31m[-]\e[0m #{msg}")
@@ -24,6 +27,6 @@ module Colorize
   end
 
   def print_div(msg = '')
-    print("=" * 80 + "\n")
+    print('=*' * 8 + "\n")
   end
 end

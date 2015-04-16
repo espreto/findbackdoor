@@ -1,6 +1,8 @@
+#
+# FindBackdoor.rb
+#
 module FindBackdoor
   def self.run(db, source_dir)
-
     files = get_filenames(db[:extensions], source_dir)
 
     result = {}
@@ -9,7 +11,6 @@ module FindBackdoor
     result[:scanned_files] = files.length
     result[:total_issues] = 0
     result[:tests] = {}
-
     db[:tests].each do |test|
 
       result[:tests][test[:title]] = {}
@@ -20,9 +21,9 @@ module FindBackdoor
       test[:patterns].each do |pattern|
         files.each do |f|
           match_lines = []
-          lines = File.open(f, "r:iso-8859-1").readlines
+          lines = File.open(f, 'r:iso-8859-1').readlines
           lines.each_with_index do |line, lineno|
-            match_lines << [lineno + 1, line.squeeze(" \t")] if (line =~ pattern)
+            match_lines << [lineno + 1, line.squeeze(" \t")] if line =~ pattern
           end
           if match_lines.length > 0
             result[:tests][test[:title]][:files] << [f, match_lines]
@@ -39,7 +40,7 @@ module FindBackdoor
   def self.get_filenames(extensions, directory)
     files = []
     extensions.each do |ext|
-      files << Dir.glob(File.join(directory,"**","*.#{ext}"), File::FNM_CASEFOLD).flatten
+      files << Dir.glob(File.join(directory, '**', "*.#{ext}"), File::FNM_CASEFOLD).flatten
     end
     files.flatten
   end

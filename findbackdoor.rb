@@ -1,5 +1,9 @@
+#
+# FindBackdoor.rb
+#
 require 'digest'
 require 'yaml'
+require 'optparse'
 require_relative 'main/findbackdoor'
 require_relative 'main/cmdline_parser'
 require_relative 'main/report'
@@ -10,8 +14,8 @@ include Colorize
 args = CmdLineParser.parse(ARGV)
 
 if args[:list_db]
-  print_status("Available signatures:")
-  Dir.glob(File.join("signatures","**","*.yml")).each do |db_name|
+  print_status('Available signatures:')
+  Dir.glob(File.join('signatures', '**', '*.yml')).each do |db_name|
     print_good("#{db_name}")
   end
   exit
